@@ -18,16 +18,13 @@ const MovieCard: React.FC<Props> = ({
   const [imgSrc, setImgSrc] = useState(`${IMAGE_BASE_URL}${movie.poster_path}`);
 
   return (
-    <div className={`movie-card ${viewType}`} onClick={() => onClick?.(movie)}>
-      <LazyImage
-        src={imgSrc}
-        alt={movie.title}
-        onMouseEnter={() =>
-          setImgSrc(`${IMAGE_BASE_URL}${movie.backdrop_path}`)
-        }
-        onMouseLeave={() => setImgSrc(`${IMAGE_BASE_URL}${movie.poster_path}`)}
-        className="poster-img"
-      />
+    <div
+      className={`movie-card ${viewType}`}
+      onMouseEnter={() => setImgSrc(`${IMAGE_BASE_URL}${movie.backdrop_path}`)}
+      onMouseLeave={() => setImgSrc(`${IMAGE_BASE_URL}${movie.poster_path}`)}
+      onClick={() => onClick?.(movie)}
+    >
+      <LazyImage src={imgSrc} alt={movie.title} className="poster-img" />
       <div className="info">
         <div className="title" title={movie.title}>
           <span className="rating">⭐{movie.vote_average.toFixed(1)}</span>

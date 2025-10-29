@@ -1,75 +1,68 @@
-# React + TypeScript + Vite
+# Author
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Luat Huynh
+[Demo video](https://drive.google.com/drive/folders/1DW4GK23ZQjZdiYbxsFD2ONY_FV0oFfuM?usp=sharing)
 
-Currently, two official plugins are available:
+# 🎬 Movie App
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+A responsive web application to browse movies currently playing in theaters, view top-rated movies, and search for any movie. The app includes lazy-loaded images, skeleton loading, and a smooth user experience.
 
-## React Compiler
+---
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+## ✅ Features Checklist
 
-Note: This will impact Vite dev & build performances.
+### Required Functionality
 
-## Expanding the ESLint configuration
+- [x] View a list of movies currently playing in theaters with asynchronous poster images.
+- [x] Tab bar for switching between _Now Playing_ and _Top Rated_ movies.
+- [x] Search bar to search movies by title.
+- [x] View movie details by clicking on a movie card.
+- [x] Loading state while waiting for API responses.
+- [x] Error handling: Users see a toast message for network errors.
+- [x] Responsive design for small, medium, and large screens.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+### Optional Features Implemented
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- [x] Segmented control to switch between **list view** and **grid view**.
+- [x] All images fade in after loading.
+- [x] Lazy loading of images for performance optimization.
+- [x] Custom highlight and selection effect on movie cards.
+- [x] Skeleton loading for both movie list and movie detail screens.
+- [x] Enhanced responsive layouts for different screen sizes.
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+### Additional Features
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+- [x] Dark / Light theme toggle with smooth theme transitions.
+- [x] Infinite scrolling for movie lists with loading skeletons.
+- [x] Smooth hover effects for movie cards and tabs.
+
+---
+
+## 🛠️ Build Instructions
+
+1. **Clone the repository**
+
+```bash
+git clone <repository-url>
+cd <repository-folder>
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+2. **Copy environment variables**
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+cp .env.template .env
 ```
+
+3. **Install dependencies**
+
+```bash
+npm install
+```
+
+34. **npm run dev**
+
+```bash
+npm run dev
+```
+
+note: Make sure you are using Node.js v20.19.0 or later.

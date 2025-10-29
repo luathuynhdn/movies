@@ -20,7 +20,7 @@ export const MovieTabs: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const observer = useRef<IntersectionObserver | null>(null);
   const [searchParams, setSearchParams] = useState<MovieSearchParams>({});
-  const [viewType, setViewType] = useState<"gridView" | "listView">("listView");
+  const [viewType, setViewType] = useState<"gridView" | "listView">("gridView");
 
   const loadMovies = useCallback(async () => {
     if (loading || !hasMore) return;
