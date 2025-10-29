@@ -1,0 +1,27 @@
+@use './variables' as *;
+@use './mixins' as *;
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 $space-md;
+}
+
+.grid {
+  display: grid;
+  gap: $space-md;
+
+  &.list-view {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  &.grid-view {
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  }
+}
+
+.skeleton {
+  @include skeleton();
+  border-radius: $radius-md;
+  height: 300px;
+}

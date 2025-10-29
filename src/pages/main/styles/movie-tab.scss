@@ -1,0 +1,42 @@
+@use "sass:map";
+
+.movie-tabs-container {
+  width: 100%;
+  margin: auto;
+  margin-top: $space-md;
+
+  .tab-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: $space-md;
+    margin-bottom: $space-lg;
+
+    .tab {
+      padding: $space-sm $space-md;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      border-radius: $radius-md;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all $transition-fast;
+
+      &:hover {
+        background: $color-accent;
+        color: #000;
+        transform: translateY(-1px);
+        box-shadow: var(--shadow-sm);
+      }
+
+      &:active {
+        transform: scale(0.95);
+      }
+
+      &.active {
+        background: $color-primary;
+        color: #fff;
+        border-color: $color-primary;
+      }
+    }
+  }
+}

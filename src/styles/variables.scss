@@ -1,0 +1,92 @@
+@use "sass:color";
+
+// ===========================
+// 🎨 Color Palette
+// ===========================
+$color-primary: #e50914; // Movie Red
+$color-accent: #f5c518; // IMDb Yellow
+
+$color-bg-dark: #0d0d0d;
+$color-bg-light: #ffffff;
+
+$color-surface-dark: #1a1a1a;
+$color-surface-light: #f5f5f5;
+
+$color-text-dark: #f5f5f5;
+$color-text-light: #212121;
+
+$color-border-dark: #2c2c2c;
+$color-border-light: #e0e0e0;
+
+$color-error: #ff4c4c;
+$color-success: #4caf50;
+
+// ===========================
+// ⚙️ Utility Colors
+// ===========================
+// Dart Sass replacement for lighten()/darken()
+@function lighten-color($clr, $amount) {
+  @return color.mix(white, $clr, $amount);
+}
+
+@function darken-color($clr, $amount) {
+  @return color.mix(black, $clr, $amount);
+}
+
+// ===========================
+// 📏 Spacing
+// ===========================
+$space-xs: 4px;
+$space-sm: 8px;
+$space-md: 16px;
+$space-lg: 24px;
+$space-xl: 32px;
+
+// ===========================
+// 🔲 Border Radius
+// ===========================
+$radius-sm: 4px;
+$radius-md: 8px;
+$radius-lg: 12px;
+
+// ===========================
+// 💨 Shadows
+// ===========================
+// Light theme shadows — soft and darker
+$shadow-sm-light: 0 2px 4px rgba(0, 0, 0, 0.1);
+$shadow-md-light: 0 4px 8px rgba(0, 0, 0, 0.15);
+$shadow-lg-light: 0 6px 12px rgba(0, 0, 0, 0.2);
+
+// Dark theme shadows — subtle and lighter
+$shadow-sm-dark: 0 2px 4px rgba(255, 255, 255, 0.05);
+$shadow-md-dark: 0 4px 8px rgba(255, 255, 255, 0.08);
+$shadow-lg-dark: 0 6px 12px rgba(255, 255, 255, 0.1);
+
+// ===========================
+// ⏱ Transitions
+// ===========================
+$transition-fast: 0.2s ease;
+$transition-medium: 0.3s ease;
+
+// ===========================
+// 🌓 Themes
+// ===========================
+$light-theme: (
+  background: $color-bg-light,
+  surface: $color-surface-light,
+  text: $color-text-light,
+  border: $color-border-light,
+  shadow-sm: $shadow-sm-light,
+  shadow-md: $shadow-md-light,
+  shadow-lg: $shadow-lg-light
+);
+
+$dark-theme: (
+  background: $color-bg-dark,
+  surface: $color-surface-dark,
+  text: $color-text-dark,
+  border: $color-border-dark,
+  shadow-sm: $shadow-sm-dark,
+  shadow-md: $shadow-md-dark,
+  shadow-lg: $shadow-lg-dark
+);

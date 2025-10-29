@@ -1,0 +1,99 @@
+@use "sass:map";
+@use "./variables" as *;
+@use "./mixins" as *;
+@use "./typography";
+@use "./utilities";
+
+/* Global Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+}
+
+body {
+  font-family: "Inter", system-ui, sans-serif;
+  transition:
+    background-color $transition-medium,
+    color $transition-medium;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: map.get($light-theme, background);
+  color: map.get($light-theme, text);
+  --shadow-sm: #{map.get($light-theme, shadow-sm)};
+  --shadow-md: #{map.get($light-theme, shadow-md)};
+  --shadow-lg: #{map.get($light-theme, shadow-lg)};
+  --background: #{map.get($light-theme, background)};
+  --surface: #{map.get($light-theme, surface)};
+  --text: #{map.get($light-theme, text)};
+  --border: #{map.get($light-theme, border)};
+
+  &.dark {
+    background-color: map.get($dark-theme, background);
+    color: map.get($dark-theme, text);
+    --background: #{map.get($dark-theme, background)};
+    --surface: #{map.get($dark-theme, surface)};
+    --text: #{map.get($dark-theme, text)};
+    --border: #{map.get($dark-theme, border)};
+    --shadow-sm: #{map.get($dark-theme, shadow-sm)};
+    --shadow-md: #{map.get($dark-theme, shadow-md)};
+    --shadow-lg: #{map.get($dark-theme, shadow-lg)};
+  }
+}
+
+/* ✅ Responsive body container */
+#root {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: $space-md;
+
+  @media (min-width: 768px) {
+    max-width: 90%;
+  }
+
+  @media (min-width: 1200px) {
+    max-width: 80%;
+  }
+
+  @media (min-width: 1600px) {
+    max-width: 70%;
+  }
+}
+
+/* Smooth scroll and better UX */
+html {
+  scroll-behavior: smooth;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Hide scrollbar for cleaner app feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: map.get($light-theme, border);
+  border-radius: $radius-sm;
+}
+
+body.dark ::-webkit-scrollbar-thumb {
+  background-color: map.get($dark-theme, border);
+}
+
+.skeleton-wrapper {
+  @include skeleton;
+}

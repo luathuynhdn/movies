@@ -1,0 +1,48 @@
+@use "sass:map";
+
+.lazy-image-wrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  overflow: hidden;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
+
+  .lazy-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity $transition-fast;
+    display: block;
+  }
+
+  &.loaded {
+    .lazy-image {
+      opacity: 1;
+    }
+
+    &::before {
+      display: none;
+    }
+  }
+
+  &.loading {
+    &::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 0px !important;
+      @include skeleton;
+    }
+  }
+
+  .lazy-image-fallback {
+    @include flex-center;
+    color: var(--text);
+    font-size: 0.9rem;
+    background-color: var(--surface);
+    width: 100%;
+    height: 100%;
+  }
+}

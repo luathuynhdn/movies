@@ -1,0 +1,143 @@
+@use "sass:map";
+
+.movie-search-wrapper {
+  margin-bottom: $space-lg;
+  text-align: center;
+
+  .btn-toggle-search {
+    padding: $space-sm $space-md;
+    border: none;
+    border-radius: $radius-md;
+    cursor: pointer;
+    background: $color-primary;
+    color: #fff;
+    font-weight: 500;
+    transition:
+      background $transition-fast,
+      transform $transition-fast;
+    box-shadow: var(--shadow-sm);
+
+    &:hover {
+      background: darken-color($color-primary, 10%);
+      transform: translateY(-1px);
+    }
+
+    &:active {
+      transform: scale(0.96);
+    }
+  }
+
+  .movie-search-bar {
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: scaleY(0.95);
+    transform-origin: top center;
+    transition: all 0.4s ease-in-out;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: $space-sm;
+    margin-top: $space-md;
+    padding: 0 $space-md;
+    background: var(--surface);
+    border-radius: $radius-md;
+    border: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+
+    .search-input,
+    .search-select {
+      padding: $space-sm $space-md;
+      border-radius: $radius-md;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--text);
+      transition:
+        border $transition-fast,
+        background $transition-fast;
+
+      &:focus {
+        outline: none;
+        border-color: $color-primary;
+      }
+    }
+
+    .include-adult {
+      display: flex;
+      align-items: center;
+      gap: $space-xs;
+      color: var(--text);
+
+      input[type="checkbox"] {
+        accent-color: $color-primary;
+        width: 16px;
+        height: 16px;
+      }
+    }
+
+    .btn-search,
+    .btn-reset {
+      padding: $space-sm $space-md;
+      border-radius: $radius-md;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all $transition-fast;
+
+      &.btn-search {
+        background: $color-primary;
+        color: #fff;
+        border: none;
+
+        &:hover {
+          transform: translateY(-1px);
+          box-shadow: var(--shadow-sm);
+        }
+      }
+
+      &.btn-reset {
+        background: transparent;
+        border: 1px solid var(--border);
+        color: var(--text);
+
+        &:hover {
+          background: $color-accent;
+          color: #000;
+        }
+      }
+    }
+  }
+
+  &.open {
+    .movie-search-bar {
+      max-height: 200px; // enough to show all fields
+      opacity: 1;
+      pointer-events: auto;
+      transform: scaleY(1);
+      padding: $space-md;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .movie-search-bar {
+      flex-direction: column;
+      align-items: stretch;
+      max-height: 0;
+      padding: 0;
+
+      &.open {
+        max-height: 400px;
+        padding: $space-md;
+      }
+
+      .search-input,
+      .search-select,
+      .btn-search,
+      .btn-reset {
+        width: 100%;
+      }
+    }
+  }
+}

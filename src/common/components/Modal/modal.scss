@@ -1,0 +1,79 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  background-color: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  opacity: 0;
+  transition: opacity $transition-medium;
+
+  &.show {
+    opacity: 1;
+  }
+
+  &.hide {
+    opacity: 0;
+  }
+}
+
+.modal-content {
+  background: var(--surface);
+  color: var(--text);
+  border-radius: $radius-lg;
+  box-shadow: var(--shadow-lg);
+  padding: $space-lg;
+  position: relative;
+  max-height: 90vh;
+  overflow-y: auto;
+  transform: scale(0.95);
+  opacity: 0;
+  transition:
+    transform $transition-medium,
+    opacity $transition-medium;
+
+  &.show {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  &.hide {
+    transform: scale(0.9);
+    opacity: 0;
+  }
+
+  @media (max-width: 768px) {
+    width: 90% !important;
+    padding: $space-md;
+  }
+}
+
+.modal-title {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-bottom: $space-md;
+  color: var(--text);
+  text-align: left;
+}
+
+.modal-body {
+  margin-bottom: $space-md;
+}
+
+.modal-close {
+  position: absolute;
+  top: $space-md;
+  right: $space-lg;
+  background: none;
+  border: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  color: var(--text);
+  transition: color $transition-fast;
+
+  &:hover {
+    color: $color-primary;
+  }
+}

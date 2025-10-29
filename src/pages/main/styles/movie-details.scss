@@ -1,0 +1,123 @@
+@use "@/styles/variables" as *;
+
+.movie-details {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: $space-lg;
+  color: var(--text);
+  padding: $space-md;
+
+  .poster-section {
+    display: flex;
+    flex: 0 0 250px;
+    justify-content: center;
+    max-height: 500px;
+
+    .poster-img {
+      width: 100%;
+      max-width: 300px;
+      border-radius: $radius-md;
+      box-shadow: var(--shadow-md);
+    }
+  }
+
+  .info-section {
+    flex: 1;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: $space-sm;
+    text-align: left;
+    justify-content: center;
+
+    .description {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: $space-sm;
+      min-width: 300px;
+      max-width: 400px;
+    }
+
+    .rating {
+      margin-top: $space-lg;
+      margin-bottom: $space-lg;
+      background: $color-primary;
+      color: #fff;
+      padding: $space-xs $space-sm;
+      border-radius: $radius-sm;
+      font-weight: 500;
+      font-size: 0.9rem;
+      align-self: center;
+    }
+
+    .movie-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      align-self: center;
+    }
+
+    .tagline {
+      font-style: italic;
+      color: $color-accent;
+      align-self: center;
+      text-align: center;
+    }
+
+    .overview {
+      margin: $space-sm 0;
+    }
+
+    .metadata,
+    .genres,
+    .companies,
+    .countries,
+    .languages {
+      margin: $space-xs 0;
+      font-size: 0.95rem;
+      strong {
+        color: $color-primary;
+      }
+    }
+
+    .homepage-link {
+      display: inline-block;
+      margin-top: $space-md;
+      padding: $space-xs $space-md;
+      background: $color-primary;
+      color: #fff;
+      border-radius: $radius-sm;
+      text-decoration: none;
+      transition: all $transition-fast;
+      align-self: center;
+
+      &:hover {
+        background: darken-color($color-primary, 10%);
+      }
+    }
+  }
+
+  @media (max-width: 768px) {
+    flex-direction: column;
+    .poster-section {
+      width: 100%;
+      text-align: left;
+
+      .rating {
+        left: 50%;
+      }
+    }
+    .info-section {
+      gap: $space-sm;
+    }
+  }
+}
+
+.movie-details-loading {
+  color: var(--text);
+  text-align: left;
+  padding: $space-lg;
+}
