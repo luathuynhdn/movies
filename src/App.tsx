@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes } from "react-router";
+import { HashRouter, Route, Routes } from "react-router";
 
 import "./styles/main.scss";
 
@@ -6,11 +6,11 @@ import Main from "@pages/main/Main";
 
 function App() {
   return (
-    <BrowserRouter>
+    <HashRouter>
       <Routes>
         <Route index element={<Main />} />
       </Routes>
-    </BrowserRouter>
+    </HashRouter>
   );
 }
 

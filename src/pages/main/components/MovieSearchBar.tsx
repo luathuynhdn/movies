@@ -16,7 +16,7 @@ export const MovieSearchBar: React.FC<MovieSearchBarProps> = ({
   const [query, setQuery] = useState<string>();
   const [year, setYear] = useState<number | "">();
   const [region, setRegion] = useState<string>();
-  const [language, setLanguage] = useState<string>();
+  const [language, setLanguage] = useState<string>("");
   const [includeAdult, setIncludeAdult] = useState(false);
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -38,7 +38,7 @@ export const MovieSearchBar: React.FC<MovieSearchBarProps> = ({
     setQuery(undefined);
     setYear(undefined);
     setRegion(undefined);
-    setLanguage(undefined);
+    setLanguage("");
     setIncludeAdult(false);
     onSearch({});
   };

@@ -25,11 +25,13 @@
   border-radius: $radius-lg;
   box-shadow: var(--shadow-lg);
   padding: $space-lg;
+  padding-top: 0px;
   position: relative;
   max-height: 90vh;
   overflow-y: auto;
   transform: scale(0.95);
   opacity: 0;
+  overscroll-behavior: contain;
   transition:
     transform $transition-medium,
     opacity $transition-medium;
@@ -51,11 +53,17 @@
 }
 
 .modal-title {
+  display: flex;
   font-size: 1.25rem;
   font-weight: 600;
-  margin-bottom: $space-md;
   color: var(--text);
   text-align: left;
+  position: sticky;
+  top: 0px;
+  right: $space-lg;
+  padding: $space-md 0px;
+  background-color: var(--surface);
+  z-index: 1;
 }
 
 .modal-body {
@@ -63,15 +71,13 @@
 }
 
 .modal-close {
-  position: absolute;
-  top: $space-md;
-  right: $space-lg;
   background: none;
   border: none;
   font-size: 1.2rem;
   cursor: pointer;
   color: var(--text);
   transition: color $transition-fast;
+  margin-left: auto;
 
   &:hover {
     color: $color-primary;

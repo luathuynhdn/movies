@@ -2,6 +2,7 @@
 
 Luat Huynh
 [Demo video](https://drive.google.com/drive/folders/1DW4GK23ZQjZdiYbxsFD2ONY_FV0oFfuM?usp=sharing)
+[Demo url](https://luathuynhdn.github.io/movies/)
 
 # 🎬 Movie App
 

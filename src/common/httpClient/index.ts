@@ -2,7 +2,7 @@ import { noti } from "@providers/NotificationProvider";
 import axios, { AxiosError } from "axios";
 
 const httpClient = axios.create({
-  baseURL: import.meta.env.VITE_BASE_URL,
+  baseURL: import.meta.env.VITE_BASE_URL || "https://api.themoviedb.org/3",
 });
 httpClient.interceptors.request.use(
   async (config) => {

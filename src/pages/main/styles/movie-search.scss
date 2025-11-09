@@ -70,6 +70,7 @@
       align-items: center;
       gap: $space-xs;
       color: var(--text);
+      font-size: small;
 
       input[type="checkbox"] {
         accent-color: $color-primary;

@@ -57,11 +57,13 @@ const Modal: React.FC<ModalProps> = ({
         style={{ minWidth, width }}
         onClick={(e) => e.stopPropagation()}
       >
-        {title && <h2 className="modal-title">{title}</h2>}
+        <h2 className="modal-title">
+          {title}
+          <button className="modal-close" onClick={onClose}>
+            ✕
+          </button>
+        </h2>
         <div className="modal-body">{children}</div>
-        <button className="modal-close" onClick={onClose}>
-          ✕
-        </button>
       </div>
     </div>
   );
